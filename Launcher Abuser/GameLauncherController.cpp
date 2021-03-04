@@ -29,8 +29,6 @@ void GameLauncherController::setModuleBaseAddress() {
         {
             do
             {
-                std::wcout << modEntry.szModule << '\n';
-                std::wcout << this->launcherName.c_str() << '\n';
                 auto moduleName = std::wstring(modEntry.szModule);
                 if (!_wcsnicmp(moduleName.c_str(), this->launcherName.c_str(), this->launcherName.length()))
                 {
@@ -122,7 +120,6 @@ void GameLauncherController::findTheCodeCaveOnSectionNullBytes() {
   
   if (imageNtHeaders.OptionalHeader.Magic != IMAGE_NT_OPTIONAL_HDR32_MAGIC )
   {
-    // cout << imageNtHeaders.OptionalHeader.Magic << endl;
     notifyErrorAndExit("This aint a 32 bit application. Weird. Check above the Magic.");
   }
   
@@ -408,18 +405,11 @@ void GameLauncherController::deployControllerShellCode() {
     };
 
 
-    std::cout << "this->sharedMemoryInLauncherAddress" << std::hex <<  this->sharedMemoryInLauncherAddress << std::endl;
     SpinLockControlStruct* controlStructInTargetProcess = reinterpret_cast<SpinLockControlStruct*>(this->sharedMemoryInLauncherAddress);
-    std::cout << "controlStructInTargetProcess" << std::hex <<  controlStructInTargetProcess << std::endl;
     *reinterpret_cast<HANDLE*>(ntReadVirtualMemoryx64 + 0x12) = &controlStructInTargetProcess->hProcess;
-    std::cout << "&controlStructInTargetProcess->operation: " << std::hex <<  &controlStructInTargetProcess->operation << std::endl;
-    std::cout << "&controlStructInTargetProcess->hProcess: " << std::hex <<  &controlStructInTargetProcess->hProcess << std::endl;
     *reinterpret_cast<DWORD64*>(ntReadVirtualMemoryx64 + 0x1F) = (DWORD64)&controlStructInTargetProcess->lpBaseAddress;
-    std::cout << "(DWORD64)&controlStructInTargetProcess->lpBaseAddress: " << std::hex << (DWORD64)&controlStructInTargetProcess->lpBaseAddress << std::endl;
     *reinterpret_cast<DWORD*>(ntReadVirtualMemoryx64 + 0x2C) = (DWORD)&controlStructInTargetProcess->lpBuffer;
-    std::cout << "(DWORD)&controlStructInTargetProcess->lpBuffer: " << std::hex << (DWORD)&controlStructInTargetProcess->lpBuffer << std::endl;
     *reinterpret_cast<SIZE_T*>(ntReadVirtualMemoryx64 + 0x39) = (SIZE_T)&controlStructInTargetProcess->nSize;
-    std::cout << "(SIZE_T)&controlStructInTargetProcess->nSize: " << std::hex << (SIZE_T)&controlStructInTargetProcess->nSize << std::endl;
 
     *reinterpret_cast<DWORD*>(ntReadVirtualMemoryx64 + 0x53) = this->sharedMemoryInLauncherAddress;
 
