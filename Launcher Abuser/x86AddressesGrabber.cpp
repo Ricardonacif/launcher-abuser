@@ -12,16 +12,16 @@ bool x86AddressesGrabber::getFunctionAddresses(X86FunctionsAddress * x86Function
   const wchar_t* app_const = spyProcessName.c_str();
 
 
-  if( !CreateProcessW( NULL,   // No module name (use command line)
-      (LPWSTR)app_const,         // Command line
-      NULL,           // Process handle not inheritable
-      NULL,           // Thread handle not inheritable
-      FALSE,          // Set handle inheritance to FALSE
-      0,              // No creation flags
-      NULL,           // Use parent's environment block
-      NULL,           // Use parent's starting directory 
-      &si,            // Pointer to STARTUPINFO structure
-      &pi )           // Pointer to PROCESS_INFORMATION structure
+  if( !CreateProcessW( NULL,
+      (LPWSTR)app_const,
+      NULL,
+      NULL,
+      FALSE,
+      0,
+      NULL,
+      NULL,
+      &si,
+      &pi )
   ) 
   {
       notifyErrorAndExit("Error creating the x86spy process!");
