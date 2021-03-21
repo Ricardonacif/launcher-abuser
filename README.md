@@ -2,7 +2,7 @@
 
 Stealthy way to hijack the existing game process handle within the game launcher (currently supports Steam and Battle.net). Achieve external game process read/write with minimum footprint. 
 <p align="center">
-  <img src="/demo.gif?raw=true" width="200px">
+  <img src="/demo.gif?raw=true" width="600px">
 </p>
 
 ## Core Concepts:
@@ -44,4 +44,4 @@ gameLauncherCtl.writeGameMemory(lpBaseAddress, (void*)bufferToWritePtr,  size);
 
 ```
 ## Disclaimer
-The project was developed for education purposes only. Nothing here is new and it was somewhat based on (this great project by harakirinox)[https://www.unknowncheats.me/forum/anti-cheat-bypass/261176-silentjack-ultimate-handle-hijacking-user-mode-multi-ac-bypass-eac-tested.html]. It should not be used to cheat in online games. It ain't cool kids. Also, as always, big shout-out to [Guided Hacking](https://guidedhacking.com). Best game hacking learning resources on the internet. You should check them out if you haven't yet.
+The project was developed for education purposes only. Nothing here is new and it was somewhat based on [this great project by harakirinox](https://www.unknowncheats.me/forum/anti-cheat-bypass/261176-silentjack-ultimate-handle-hijacking-user-mode-multi-ac-bypass-eac-tested.html). It should not be used to cheat in online games. It ain't cool kids. Also, as always, big shout-out to [Guided Hacking](https://guidedhacking.com). Best game hacking learning resources on the internet. You should check them out if you haven't yet.
