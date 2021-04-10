@@ -43,5 +43,9 @@ uintptr_t *dataPtr = gameLauncherCtl.readGameMemory(lpBaseAddress, lengthToRead)
 gameLauncherCtl.writeGameMemory(lpBaseAddress, (void*)bufferToWritePtr,  size);
 
 ```
+
+## More info
+I wrote a [tutorial on Guided Hacking](https://guidedhacking.com/threads/launcher-abuser-hijack-handles-from-steam-battle-net-launchers.17139). Check it out!
+
 ## Disclaimer
 The project was developed for education purposes only. Nothing here is new and it was somewhat based on [this great project by harakirinox](https://www.unknowncheats.me/forum/anti-cheat-bypass/261176-silentjack-ultimate-handle-hijacking-user-mode-multi-ac-bypass-eac-tested.html). It should not be used to cheat in online games. It ain't cool kids. Also, as always, big shout-out to [Guided Hacking](https://guidedhacking.com). Best game hacking learning resources on the internet. You should check them out if you haven't yet.
